@@ -41,6 +41,10 @@ enum preonic_keycodes {
 // Keypress aliases
 //#define LOWER MO(_LOWER)
 //#define RAISE MO(_RAISE)
+#define LSH_ENT LSFT_T(KC_ENT)
+#define RSH_ENT RSFT_T(KC_ENT)
+#define HYP_ESC HYPR_T(KC_ESC)
+#define NAV_SPC LT(_NAVIGATION, KC_SPC)
 
 // Defines the keycodes used by our macros in process_record_user
 enum custom_keycodes {
@@ -59,20 +63,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
  * | TAB    | Q      | W      | E      | R      | T      | [      | \      | ]      | Y      | U      | I      | O      | P      | BACKSP |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * | ESC    | A      | S      | D      | F      | G      | HOME   | INS    | PG UP  | H      | J      | K      | L      | ;      | '      |
+ * | HYP_ESC| A      | S      | D      | F      | G      | HOME   | INS    | PG UP  | H      | J      | K      | L      | ;      | '      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
- * | LSHIFT | Z      | X      | C      | V      | B      | END    | UP     | PG DN  | N      | M      | ,      | .      | /      | ENTER  |
+ * | LSH_ENT| Z      | X      | C      | V      | B      | END    | UP     | PG DN  | N      | M      | ,      | .      | /      | RSH_ENT|
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * | LCTRL  | LCTRL  | LALT   | LGUI   | LOWER  | SPACE  | LEFT   | DOWN   | RIGHT  | SPACE  | RAISE  | RGUI   | RALT   | RCTRL  | RCTRL  |
+ * | LCTRL  | LCTRL  | LALT   | LGUI   | LOWER  | NAV_SPC| LEFT   | DOWN   | RIGHT  | NAV_SPC| RAISE  | RGUI   | RALT   | RCTRL  | RCTRL  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
   [_QWERTY] = LAYOUT_ortho_5x15( /* QWERTY */
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_MINS, KC_GRV,  KC_EQL,  KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC, KC_BSLS, KC_RBRC, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-    HYPR_T(KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_HOME, KC_INS,  KC_PGUP, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    LSFT_T(KC_ENT), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_END,  KC_UP,   KC_PGDN, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT),
-    KC_LCTL, KC_LCTL, KC_LALT, KC_LGUI, LOWER, LT(_NAVIGATION, KC_SPC), KC_LEFT, KC_DOWN, KC_RGHT, LT(_NAVIGATION, KC_SPC), RAISE, KC_RGUI, KC_RALT, KC_RCTL, KC_RCTL
+    HYP_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_HOME, KC_INS,  KC_PGUP, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    LSH_ENT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_END,  KC_UP,   KC_PGDN, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RSH_ENT,
+    KC_LCTL, KC_LCTL, KC_LALT, KC_LGUI, LOWER, NAV_SPC, KC_LEFT, KC_DOWN, KC_RGHT, NAV_SPC, RAISE, KC_RGUI, KC_RALT, KC_RCTL, KC_RCTL
   ),
 
 /* FUNCTION
