@@ -45,6 +45,11 @@ enum preonic_keycodes {
 #define RSH_ENT RSFT_T(KC_ENT)
 #define HYP_ESC HYPR_T(KC_ESC)
 #define NAV_SPC LT(_NAVIGATION, KC_SPC)
+#define DVK_DOT KC_E
+#define DVK_SLSH KC_LBRC
+#define DVK_PLS KC_RCBR
+#define DVK_MIN KC_QUOT
+
 
 // Defines the keycodes used by our macros in process_record_user
 enum custom_keycodes {
@@ -135,12 +140,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |      |   0     |        |  .     | ENTER  |      | Prev | Vol- | Vol+ | Play |
  * `-----------------------------------------------------------------------------------------------------------------'
  */
+  // sending dvorak keys for numpad slash, dot, etc.
   [_LOWER] = LAYOUT_ortho_5x15(
-    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   _______, KC_SLSH, KC_ASTR, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
+    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   _______, DVK_SLSH, KC_ASTR, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_7,   KC_8,   KC_9,   KC_6,  KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
-    KC_DEL,  _______, KC_VOLD, KC_MUTE, KC_VOLU, _______, KC_4,   KC_5,   KC_6,   KC_PLUS,  KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-    _______, KC_MSTP, KC_MPRV,  KC_MPLY,  KC_MNXT,  _______, KC_1,   KC_2,   KC_3, KC_MINS,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
-    _______, _______, _______, _______, _______, _______, KC_0,   _______, KC_DOT, KC_ENT,  _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MPLY
+    KC_DEL,  _______, KC_VOLD, KC_MUTE, KC_VOLU, _______, KC_4,   KC_5,   KC_6,   DVK_PLS,  KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
+    _______, KC_MSTP, KC_MPRV,  KC_MPLY,  KC_MNXT,  _______, KC_1,   KC_2,   KC_3, DVK_MIN,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
+    _______, _______, _______, _______, _______, _______, KC_0,   _______, DVK_DOT, KC_ENT,  _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MPLY
   ),
 
 /* Adjust (Lower + Raise)
