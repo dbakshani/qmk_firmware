@@ -89,7 +89,7 @@ __attribute__((weak, used, noreturn)) void _exit(int i) {
         ;
 }
 
-__attribute__((weak, used)) int _gettimeofday_r(struct _reent *r, struct timeval *t, void *tzp) {
+__attribute__((weak, used)) int _gettimeofday_r(struct _reent *r, void *tzp) {
     __errno_r(r) = EPERM;
     return -1;
 }
