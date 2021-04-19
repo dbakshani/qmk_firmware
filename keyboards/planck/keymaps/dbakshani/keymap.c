@@ -41,10 +41,17 @@ enum planck_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 
+// multifunction tap/hold keys
 #define LSH_ENT LSFT_T(KC_ENT)
 #define RSH_ENT RSFT_T(KC_ENT)
+#define LGUI_TAB LGUI_T(KC_TAB)
 #define HYP_ESC HYPR_T(KC_ESC)
 #define NAV_SPC LT(_NAVIGATION, KC_SPC)
+#define NAV_ENT LT(_NAVIGATION, KC_ENT)
+#define LOWR_ESC LT(_LOWER, KC_ESC)
+#define RAIS_BSP LT(_RAISE, KC_BSPC)
+
+// make it easier to map qwerty to dvorak
 #define DVK_DOT KC_E
 #define DVK_SLSH KC_LBRC
 #define DVK_PLS KC_RCBR
@@ -75,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
  * | LSH_ENT| Z      | X/ALGR | C      | V      | B      | N      | M      | ,      | ./ALGR | /      | RSH_ENT|
  * |--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------+--------|
- * | Brite  | LCTRL  | LALT   | LGUI   | LOWER  | NAV_SPC| NAV_SPC| RAISE  | Left   | Down   | Up     | Right  |
+ * | Brite  | LCTRL  | LALT   |LGUI_TAB|LOWR_ESC| NAV_SPC| NAV_ENT|RAIS_BSP| Left   | Down   | Up     | Right  |
  * '-----------------------------------------------------------------------------------------------------------'
  */
 
@@ -83,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB  , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_BSPC,
     HYP_ESC , ALT_A  , GUI_S  , SFT_D  , CTL_F  , KC_G   , KC_H   , CTL_J  , SFT_K  , GUI_L  ,ALT_SCLN, KC_QUOT,
     LSH_ENT , KC_Z   , ALGR_X , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM,ALGR_DOT, KC_SLSH, RSH_ENT,
-    BACKLIT , KC_LCTL, KC_LALT, KC_LGUI, LOWER  , NAV_SPC, NAV_SPC, RAISE  , KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT
+    BACKLIT , KC_LCTL, KC_LALT,LGUI_TAB,LOWR_ESC, NAV_SPC, NAV_ENT,RAIS_BSP, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT
 ),
 
 /* Colemak
