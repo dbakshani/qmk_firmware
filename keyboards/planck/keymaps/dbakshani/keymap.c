@@ -65,9 +65,9 @@ enum planck_keycodes {
 #define ALGR_X ALGR_T(KC_X)
 
 // Right-hand home row mods
-#define CTL_J RCTL_T(KC_J)
-#define SFT_K RSFT_T(KC_K)
-#define GUI_L RGUI_T(KC_L)
+#define CTL_J LCTL_T(KC_J)
+#define SFT_K LSFT_T(KC_K)
+#define GUI_L LGUI_T(KC_L)
 #define ALT_SCLN LALT_T(KC_SCLN)
 #define ALGR_DOT ALGR_T(KC_DOT)
 
