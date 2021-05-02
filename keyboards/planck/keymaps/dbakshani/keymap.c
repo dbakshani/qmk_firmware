@@ -25,7 +25,9 @@ enum planck_layers {
   _LOWER,
   _RAISE,
   _ADJUST,
-  _NAVIGATION
+  _NAVIGATION,
+  _MEDIA,
+  _MOUSE
 };
 
 enum planck_keycodes {
@@ -41,15 +43,14 @@ enum planck_keycodes {
 // multifunction tap/hold keys
 #define LSH_ENT LSFT_T(KC_ENT)
 #define RSH_ENT RSFT_T(KC_ENT)
-#define LGUI_TAB LGUI_T(KC_TAB)
 #define HYP_ESC HYPR_T(KC_ESC)
 #define HYP_MIN HYPR_T(DVK_MIN)
 #define LSH_SPC LSFT_T(KC_SPC)
 #define NAV_ENT LT(_NAVIGATION, KC_ENT)
-#define LOWR_ESC LT(_LOWER, KC_ESC)
 #define LOWR_BSP LT(_LOWER, KC_BSPC)
-#define RAIS_BSP LT(_RAISE, KC_BSPC)
 #define RAIS_DEL LT(_RAISE, KC_DEL)
+#define MDIA_TAB LT(_MEDIA, KC_TAB)
+#define MOUS_ESC LT(_MOUSE, KC_ESC)
 
 // make it easier to map qwerty to dvorak
 #define DVK_DOT KC_E
@@ -82,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
  * | LSH_ENT| Z      | X/ALGR | C      | V      | B      | N      | M      | ,      | ./ALGR | /      | RSH_ENT|
  * |--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------+--------|
- * | Del    | LCTRL  | LALT   |LGUI_TAB| LSH_SPC| KC_ESC | NAV_ENT|LOWR_BSP|RAIS_DEL| Down   | Left   | Right  |
+ * | Del    | LCTRL  | LALT   |MDIA_TAB| LSH_SPC|MOUS_ESC| NAV_ENT|LOWR_BSP|RAIS_DEL| Down   | Left   | Right  |
  * '-----------------------------------------------------------------------------------------------------------'
  */
 
@@ -90,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB  , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_BSPC,
     HYP_ESC , SFT_A  , ALT_S  , GUI_D  , CTL_F  , KC_G   , KC_H   , CTL_J  , GUI_K  , ALT_L  ,SFT_SCLN, HYP_MIN,
     LSH_ENT , KC_Z   , ALGR_X , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM,ALGR_DOT, KC_SLSH, RSH_ENT,
-    KC_DEL  , KC_LCTL, KC_LALT,LGUI_TAB, LSH_SPC, KC_ESC , NAV_ENT,LOWR_BSP,RAIS_DEL, KC_DOWN, KC_LEFT, KC_RGHT
+    KC_DEL  , KC_LCTL, KC_LALT,MDIA_TAB, LSH_SPC,MOUS_ESC, NAV_ENT,LOWR_BSP,RAIS_DEL, KC_DOWN, KC_LEFT, KC_RGHT
 ),
 
 /* Colemak
@@ -184,21 +185,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
 ),
 
-/* Navigation
- * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |Pg Dn |      |      |      |Right |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | End  |      |      |Pg Up | Home |Pg Dn | Left |      |      |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      | Down |  Up  |      |Pg Up |      |      |      |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * `-----------------------------------------------------------------------------------'
- */
 [_NAVIGATION] = LAYOUT_planck_grid(
     _______, _______, _______, _______, _______, _______, KC_PGDN, _______, _______,  _______, KC_RIGHT, _______,
     _______, KC_END , _______, _______, KC_PGUP, KC_HOME, KC_PGDN, KC_LEFT, _______,  _______, _______, _______,
     _______, _______, _______, KC_DOWN, KC_UP  , _______, KC_PGUP, _______, _______,  _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
+),
+
+[_MEDIA] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
+),
+
+[_MOUSE] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
 )
 
