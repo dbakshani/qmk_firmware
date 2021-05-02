@@ -32,8 +32,7 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   COLEMAK,
   DVORAK,
-  BACKLIT,
-  EXT_PLV
+  BACKLIT
 };
 
 #define LOWER MO(_LOWER)
@@ -44,10 +43,13 @@ enum planck_keycodes {
 #define RSH_ENT RSFT_T(KC_ENT)
 #define LGUI_TAB LGUI_T(KC_TAB)
 #define HYP_ESC HYPR_T(KC_ESC)
+#define HYP_MIN HYPR_T(DVK_MIN)
 #define LSH_SPC LSFT_T(KC_SPC)
 #define NAV_ENT LT(_NAVIGATION, KC_ENT)
 #define LOWR_ESC LT(_LOWER, KC_ESC)
+#define LOWR_BSP LT(_LOWER, KC_BSPC)
 #define RAIS_BSP LT(_RAISE, KC_BSPC)
+#define RAIS_DEL LT(_RAISE, KC_DEL)
 
 // make it easier to map qwerty to dvorak
 #define DVK_DOT KC_E
@@ -76,19 +78,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * .-----------------------------------------------------------------------------------------------------------.
  * | TAB    | Q      | W      | E      | R      | T      | Y      | U      | I      | O      | P      | BACKSP |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * | HYP_ESC| A/SHFT | S/ALT  | D/GUI  | F/CTRL | G      | H      | J/CTRL | K/GUI  | L/ALT  | ;/SHFT | '      |
+ * | HYP_ESC| A/SHFT | S/ALT  | D/GUI  | F/CTRL | G      | H      | J/CTRL | K/GUI  | L/ALT  | ;/SHFT |HYP_MIN |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
  * | LSH_ENT| Z      | X/ALGR | C      | V      | B      | N      | M      | ,      | ./ALGR | /      | RSH_ENT|
  * |--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------+--------|
- * | Brite  | LCTRL  | LALT   |LGUI_TAB|LOWR_ESC| LSH_SPC| NAV_ENT|RAIS_BSP| Left   | Down   | Up     | Right  |
+ * | Del    | LCTRL  | LALT   |LGUI_TAB| LSH_SPC| KC_ESC | NAV_ENT|LOWR_BSP|RAIS_DEL| Down   | Left   | Right  |
  * '-----------------------------------------------------------------------------------------------------------'
  */
 
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB  , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_BSPC,
-    HYP_ESC , SFT_A  , ALT_S  , GUI_D  , CTL_F  , KC_G   , KC_H   , CTL_J  , GUI_K  , ALT_L  ,SFT_SCLN, KC_QUOT,
+    HYP_ESC , SFT_A  , ALT_S  , GUI_D  , CTL_F  , KC_G   , KC_H   , CTL_J  , GUI_K  , ALT_L  ,SFT_SCLN, HYP_MIN,
     LSH_ENT , KC_Z   , ALGR_X , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM,ALGR_DOT, KC_SLSH, RSH_ENT,
-    BACKLIT , KC_LCTL, KC_LALT,LGUI_TAB,LOWR_ESC, LSH_SPC, NAV_ENT,RAIS_BSP, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT
+    KC_DEL  , KC_LCTL, KC_LALT,LGUI_TAB, LSH_SPC, KC_ESC , NAV_ENT,LOWR_BSP,RAIS_DEL, KC_DOWN, KC_LEFT, KC_RGHT
 ),
 
 /* Colemak
