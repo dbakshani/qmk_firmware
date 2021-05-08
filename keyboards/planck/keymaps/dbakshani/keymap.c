@@ -69,38 +69,25 @@ enum planck_keycodes {
 #define DVK_RCBR KC_PLUS
 
 // Left-hand home row mods
-#define SFT_A LSFT_T(KC_A)
-#define ALT_S LALT_T(KC_S)
-#define GUI_D LGUI_T(KC_D)
+#define ALT_A LALT_T(KC_A)
+#define GUI_S LGUI_T(KC_S)
+#define SFT_D LSFT_T(KC_D)
 #define CTL_F LCTL_T(KC_F)
-#define ALGR_X ALGR_T(KC_X)
+#define ALGR_Z ALGR_T(KC_Z)
 
 // Right-hand home row mods
 #define CTL_J LCTL_T(KC_J)
-#define GUI_K LGUI_T(KC_K)
-#define ALT_L LALT_T(KC_L)
-#define SFT_SCLN LSFT_T(KC_SCLN)
-#define ALGR_DOT ALGR_T(KC_DOT)
+#define SFT_K LSFT_T(KC_K)
+#define GUI_L LGUI_T(KC_L)
+#define ALT_SCLN LALT_T(KC_SCLN)
+#define ALGR_SLS ALGR_T(KC_SLSH)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-
-/* Qwerty
- * .-----------------------------------------------------------------------------------------------------------.
- * | TAB    | Q      | W      | E      | R      | T      | Y      | U      | I      | O      | P      | BACKSP |
- * |--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * | HYP_ESC| A/SHFT | S/ALT  | D/GUI  | F/CTRL | G      | H      | J/CTRL | K/GUI  | L/ALT  | ;/SHFT |HYP_MIN |
- * |--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
- * | LSH_ENT| Z      | X/ALGR | C      | V      | B      | N      | M      | ,      | ./ALGR | /      | RSH_ENT|
- * |--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------+--------|
- * | Del    | LCTRL  | LALT   |MDIA_TAB| LSH_SPC|MOUS_ESC| NAV_ENT|LOWR_BSP|RAIS_DEL| Down   | Left   | Right  |
- * '-----------------------------------------------------------------------------------------------------------'
- */
-
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB  , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_BSPC,
-    HYP_ESC , SFT_A  , ALT_S  , GUI_D  , CTL_F  , KC_G   , KC_H   , CTL_J  , GUI_K  , ALT_L  ,SFT_SCLN, HYP_MIN,
-    LSH_ENT , KC_Z   , ALGR_X , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM,ALGR_DOT, KC_SLSH, RSH_ENT,
+    HYP_ESC , ALT_A  , GUI_S  , SFT_D  , CTL_F  , KC_G   , KC_H   , CTL_J  , SFT_K  , GUI_L  ,ALT_SCLN, HYP_MIN,
+    LSH_ENT , ALGR_Z , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT ,ALGR_SLS, RSH_ENT,
     KC_DEL  , KC_LCTL, KC_LALT,MDIA_TAB, LSH_SPC,MOUS_ESC, NAV_ENT,LOWR_BSP,RAIS_DEL, KC_DOWN, KC_LEFT, KC_RGHT
 ),
 
