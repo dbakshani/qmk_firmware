@@ -45,10 +45,10 @@ enum planck_keycodes {
 #define RSH_ENT RSFT_T(KC_ENT)
 #define HYP_ESC HYPR_T(KC_ESC)
 #define HYP_MIN HYPR_T(DVK_MINS)
-#define LSH_SPC LSFT_T(KC_SPC)
+#define LOWR_SPC LT(_LOWER, KC_SPC)
 #define NAV_ENT LT(_NAVIGATION, KC_ENT)
-#define LOWR_BSP LT(_LOWER, KC_BSPC)
-#define RAIS_DEL LT(_RAISE, KC_DEL)
+#define RAIS_BSP LT(_RAISE, KC_BSPC)
+#define LSFT_DEL LSFT_T(KC_DEL)
 #define MDIA_TAB LT(_MEDIA, KC_TAB)
 #define MOUS_ESC LT(_MOUSE, KC_ESC)
 
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB  , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_BSPC,
     HYP_ESC , ALT_A  , GUI_S  , SFT_D  , CTL_F  , KC_G   , KC_H   , CTL_J  , SFT_K  , GUI_L  ,ALT_SCLN, HYP_MIN,
     LSH_ENT , ALGR_Z , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT ,ALGR_SLS, RSH_ENT,
-    KC_DEL  , KC_LCTL, KC_LALT,MDIA_TAB, LSH_SPC,MOUS_ESC, NAV_ENT,LOWR_BSP,RAIS_DEL, KC_DOWN, KC_LEFT, KC_RGHT
+    KC_DEL  , KC_LCTL, KC_LALT,MDIA_TAB,LOWR_SPC,MOUS_ESC, NAV_ENT,RAIS_BSP,LSFT_DEL, KC_DOWN, KC_LEFT, KC_RGHT
 ),
 
 [_LOWER] = LAYOUT_planck_grid(
