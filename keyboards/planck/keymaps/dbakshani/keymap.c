@@ -73,9 +73,11 @@ enum planck_keycodes {
 #define GUI_S LGUI_T(KC_S)
 #define SFT_D LSFT_T(KC_D)
 #define CTL_F LCTL_T(KC_F)
+#define HYPR_G HYPR_T(KC_G)
 #define ALGR_Z ALGR_T(KC_Z)
 
 // Right-hand home row mods
+#define HYPR_H HYPR_T(KC_H)
 #define CTL_J LCTL_T(KC_J)
 #define SFT_K LSFT_T(KC_K)
 #define GUI_L LGUI_T(KC_L)
@@ -86,7 +88,7 @@ enum planck_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB  , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_BSPC,
-    HYP_ESC , ALT_A  , GUI_S  , SFT_D  , CTL_F  , KC_G   , KC_H   , CTL_J  , SFT_K  , GUI_L  ,ALT_SCLN, HYP_MIN,
+    HYP_ESC , ALT_A  , GUI_S  , SFT_D  , CTL_F  , HYPR_G , HYPR_H , CTL_J  , SFT_K  , GUI_L  ,ALT_SCLN, HYP_MIN,
     LSH_ENT , ALGR_Z , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT ,ALGR_SLS, RSH_ENT,
     KC_DEL  , KC_LCTL, KC_LALT,MDIA_TAB,LOWR_SPC,MOUS_ESC, NAV_ENT,RAIS_BSP,LSFT_DEL, KC_DOWN, KC_LEFT, KC_RGHT
 ),
