@@ -92,10 +92,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_LOWER] = LAYOUT_planck_grid(
-    KC_GRV ,DVK_LBRC, KC_7   , KC_8   , KC_9   ,DVK_RBRC, KC_PSCR, KC_F7  , KC_F8  , KC_F9,   KC_F12 , KC_DEL ,
-    KC_DEL ,DVK_SLSH, KC_4   , KC_5   , KC_6   ,DVK_EQUL, KC_SLCK, KC_F4  , KC_F5  , KC_F6  , KC_F11 , _______,
-    _______, KC_GRV , KC_1   , KC_2   , KC_3   , KC_BSLS, KC_PAUS, KC_F1  , KC_F2  , KC_F3  , KC_F10 , _______,
-    _______, _______, _______, DVK_DOT, KC_0   ,DVK_MINS, _______, _______, _______, _______, _______, _______
+    KC_GRV  , KC_F12 , KC_F7  , KC_F8  , KC_F9  , KC_PSCR,DVK_LBRC, KC_7   , KC_8   , KC_9   ,DVK_RBRC, KC_DEL ,
+    KC_DEL  , KC_F11 , KC_F4  , KC_F5  , KC_F6  , KC_SLCK,DVK_SLSH, KC_4   , KC_5   , KC_6   ,DVK_EQUL, _______,
+     _______, KC_F10 , KC_F1  , KC_F2  , KC_F3  , KC_PAUS, KC_GRV , KC_1   , KC_2   , KC_3   , KC_BSLS, _______,
+     _______, _______, _______, _______, _______, _______,DVK_MINS, KC_0   , DVK_DOT, _______, _______, _______
 ),
 
 [_RAISE] = LAYOUT_planck_grid(
