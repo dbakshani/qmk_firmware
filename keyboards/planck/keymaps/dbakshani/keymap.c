@@ -99,10 +99,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_RAISE] = LAYOUT_planck_grid(
-    KC_TILD,DVK_LCBR, KC_AMPR, KC_ASTR, KC_LPRN,DVK_RCBR, _______,DVK_LCBR,DVK_RCBR,DVK_QSTN,DVK_PLUS, KC_DEL ,
-    _______,DVK_QSTN, KC_DLR , KC_PERC, KC_CIRC,DVK_PLUS, _______,DVK_LBRC,DVK_RBRC,DVK_SLSH,DVK_EQUL, _______,
-    _______, KC_TILD, KC_EXLM, KC_AT  , KC_HASH, KC_PIPE, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, KC_LPRN, KC_RPRN,DVK_UNDS, _______, _______, _______, _______, _______, _______
+    KC_TILD ,DVK_LCBR, KC_AMPR, KC_ASTR, KC_LPRN,DVK_RCBR, _______,DVK_LCBR,DVK_RCBR,DVK_QSTN,DVK_PLUS, KC_DEL ,
+     _______,DVK_QSTN, KC_DLR , KC_PERC, KC_CIRC,DVK_PLUS, _______,DVK_LBRC,DVK_RBRC,DVK_SLSH,DVK_EQUL, _______,
+     _______, KC_TILD, KC_EXLM, KC_AT  , KC_HASH, KC_PIPE, _______, _______, _______, _______, _______, _______,
+     _______, _______, _______, KC_LPRN, KC_RPRN,DVK_UNDS, _______, _______, _______, _______, _______, _______
 ),
 
 /* Adjust (Lower + Raise)
