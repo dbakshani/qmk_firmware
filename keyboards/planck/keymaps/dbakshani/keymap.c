@@ -49,7 +49,7 @@ enum planck_keycodes {
 #define NAV_ENT LT(_NAVIGATION, KC_ENT)
 #define RAIS_BSP LT(_RAISE, KC_BSPC)
 //#define LSFT_DEL LSFT_T(KC_DEL)
-#define LSFT_MIN LSFT_T(KC_MINS)
+#define LSFT_MIN LSFT_T(DVK_MINS)
 #define MDIA_TAB LT(_MEDIA, KC_TAB)
 #define MOUS_ESC LT(_MOUSE, KC_ESC)
 
@@ -103,8 +103,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT_planck_grid(
     KC_TILD ,DVK_LCBR, KC_AMPR, KC_ASTR, KC_LPRN,DVK_RCBR, _______,DVK_LCBR,DVK_RCBR,DVK_QSTN,DVK_PLUS, KC_DEL ,
      _______,DVK_QSTN, KC_DLR , KC_PERC, KC_CIRC,DVK_PLUS, _______,DVK_LBRC,DVK_RBRC,DVK_SLSH,DVK_EQUL, _______,
-     _______, KC_TILD, KC_EXLM, KC_AT  , KC_HASH, KC_PIPE, _______, _______, _______, _______, _______, _______,
-     _______, _______, _______, KC_LPRN, KC_RPRN,DVK_UNDS, _______, _______, _______, _______, _______, _______
+     _______, KC_TILD, KC_EXLM, KC_AT  , KC_HASH, KC_PIPE, _______, KC_LPRN, KC_RPRN, _______, _______, _______,
+     _______, _______, _______, _______, _______,DVK_UNDS, _______, _______, _______, _______, _______, _______
 ),
 
 /* Adjust (Lower + Raise)
