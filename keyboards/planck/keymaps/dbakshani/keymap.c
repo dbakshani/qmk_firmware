@@ -87,24 +87,24 @@ enum planck_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_planck_grid(
-    KC_TAB  , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_BSPC,
-    HYP_ESC , ALT_A  , GUI_S  , SFT_D  , CTL_F  , HYPR_G , HYPR_H , CTL_J  , SFT_K  , GUI_L  ,ALT_SCLN, HYP_MIN,
-    LSH_ENT , ALGR_Z , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT ,ALGR_SLS, RSH_ENT,
-    KC_DEL  , KC_LCTL, KC_LALT,MDIA_TAB,LOWR_SPC,MOUS_ESC, NAV_ENT,RAIS_BSP,LSFT_MIN, KC_DOWN, KC_LEFT, KC_RGHT
+    KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_TAB , KC_BSPC, KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   ,
+    ALT_A  , GUI_S  , SFT_D  , CTL_F  , HYPR_G , HYP_ESC, HYP_MIN, HYPR_H , CTL_J  , SFT_K  , GUI_L  ,ALT_SCLN,
+    ALGR_Z , KC_X   , KC_C   , KC_V   , KC_B   , LSH_ENT, RSH_ENT, KC_N   , KC_M   , KC_COMM, KC_DOT ,ALGR_SLS,
+    KC_DOWN, KC_UP  ,MDIA_TAB,LOWR_SPC,MOUS_ESC, KC_SPC , KC_SPC , NAV_ENT,RAIS_BSP,LSFT_MIN, KC_LEFT, KC_RGHT
 ),
 
 [_LOWER] = LAYOUT_planck_grid(
-    KC_GRV  , KC_F12 , KC_F7  , KC_F8  , KC_F9  , KC_PSCR,DVK_PLUS, KC_7   , KC_8   , KC_9   , KC_ASTR, KC_DEL ,
-    KC_DEL  , KC_F11 , KC_F4  , KC_F5  , KC_F6  , KC_DEL ,DVK_SLSH, KC_4   , KC_5   , KC_6   ,DVK_EQUL, _______,
-     _______, KC_F10 , KC_F1  , KC_F2  , KC_F3  , KC_GRV , KC_BSLS, KC_1   , KC_2   , KC_3   , KC_SLCK, _______,
-     _______, _______, _______, _______, _______, KC_PAUS,DVK_MINS, KC_0   , DVK_DOT, _______, _______, _______
+    KC_F12 , KC_F7  , KC_F8  , KC_F9  , KC_PSCR, KC_GRV , KC_DEL ,DVK_PLUS, KC_7   , KC_8   , KC_9   , KC_ASTR,
+    KC_F11 , KC_F4  , KC_F5  , KC_F6  , KC_DEL , KC_DEL , _______,DVK_SLSH, KC_4   , KC_5   , KC_6   ,DVK_EQUL,
+    KC_F10 , KC_F1  , KC_F2  , KC_F3  , KC_GRV , _______, _______, KC_BSLS, KC_1   , KC_2   , KC_3   , KC_SLCK,
+    _______, _______, _______, _______, KC_PAUS, _______, _______,DVK_MINS, KC_0   , DVK_DOT, _______, _______
 ),
 
 [_RAISE] = LAYOUT_planck_grid(
-    KC_TILD , _______, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,DVK_LCBR,DVK_RCBR,DVK_QSTN,DVK_PLUS, KC_DEL ,
-     _______, _______, KC_DLR , KC_PERC, KC_CIRC, _______, _______,DVK_LBRC,DVK_RBRC,DVK_SLSH,DVK_EQUL, _______,
-     _______, _______, KC_EXLM, KC_AT  , KC_HASH, KC_TILD, KC_PIPE, KC_LPRN, KC_RPRN, _______, KC_BSPC, _______,
-     _______, _______, _______, _______, _______,DVK_UNDS, _______, _______, _______, _______, _______, _______
+    _______, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,KC_TILD , KC_DEL , _______,DVK_LCBR,DVK_RCBR,DVK_QSTN,DVK_PLUS,
+    _______, KC_DLR , KC_PERC, KC_CIRC, _______, _______, _______, _______,DVK_LBRC,DVK_RBRC,DVK_SLSH,DVK_EQUL,
+    _______, KC_EXLM, KC_AT  , KC_HASH, KC_TILD, _______, _______, KC_PIPE, KC_LPRN, KC_RPRN, _______, KC_BSPC,
+    _______, _______, _______, _______,DVK_UNDS, _______, _______, _______, _______, _______, _______, _______
 ),
 
 /* Adjust (Lower + Raise)
@@ -120,31 +120,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_planck_grid(
-    _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL ,
-    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK,  DVORAK,  _______, _______,
-    _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
+    RESET  , DEBUG  , RGB_TOG, RGB_MOD, RGB_HUI, _______, _______, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD,
+    _______, MU_MOD , AU_ON  , AU_OFF , AG_NORM, _______, _______, AG_SWAP, QWERTY , COLEMAK, DVORAK , _______,
+    MUV_DE , MUV_IN , MU_ON  , MU_OFF , MI_ON  , _______, _______, MI_OFF , TERM_ON,TERM_OFF, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
 [_NAVIGATION] = LAYOUT_planck_grid(
-    _______, _______, _______, _______, _______, _______, KC_PGDN, _______, KC_CAPS,  _______, KC_RIGHT, _______,
-    _______, KC_END , _______, _______, KC_PGUP, KC_HOME, KC_PGDN, KC_LEFT, _______,  _______, _______, _______,
-    _______, _______, _______, KC_DOWN, KC_UP  , _______, KC_PGUP, _______, _______,  _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
+    _______, _______, _______, _______, _______, _______, _______, KC_PGDN, _______, KC_CAPS, _______,KC_RIGHT,
+    KC_END , _______, _______, KC_PGUP, KC_HOME, _______, _______, KC_PGDN, KC_LEFT, _______, _______, _______,
+    _______, _______, KC_DOWN, KC_UP  , _______, _______, _______, KC_PGUP, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
 [_MEDIA] = LAYOUT_planck_grid(
-    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_VOLD, KC_MUTE,  KC_VOLU, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_MPRV, KC_MPLY,  KC_MNXT, KC_MSTP, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_VOLD, KC_MUTE, KC_VOLU, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
 [_MOUSE] = LAYOUT_planck_grid(
-    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D,  KC_MS_U, KC_MS_R, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_WH_L, KC_WH_D,  KC_WH_U, KC_WH_R, _______,
-    _______, _______, _______, _______, _______, _______, KC_BTN1, KC_BTN3, KC_BTN2,  _______, _______, _______
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,
+    _______, _______, _______, _______, _______, _______, _______, KC_BTN1, KC_BTN3, KC_BTN2, _______, _______
 ),
 
 /* Colemak
