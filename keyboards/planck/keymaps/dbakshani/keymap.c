@@ -33,6 +33,12 @@ enum planck_keycodes {
   BACKLIT
 };
 
+enum combos {
+    WE_TAB,
+    IO_MINS,
+    COMMADOT_USCR
+};
+
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 
@@ -80,6 +86,16 @@ enum planck_keycodes {
 #define GUI_L LGUI_T(KC_L)
 #define ALT_SCLN LALT_T(KC_SCLN)
 #define ALGR_SLS ALGR_T(KC_SLSH)
+
+const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM commadot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+    [WE_TAB] = COMBO(we_combo, KC_TAB),
+    [IO_MINS] = COMBO(io_combo, DVK_MINS),
+    [COMMADOT_USCR] = COMBO(commadot_combo, DVK_UNDS),
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_planck_grid(
