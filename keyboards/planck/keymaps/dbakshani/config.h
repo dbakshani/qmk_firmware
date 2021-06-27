@@ -48,3 +48,9 @@
 
 // Apply the modifier on keys that are tapped during a short hold of a modtap
 #define PERMISSIVE_HOLD
+
+// Number of combo pairs in use
+#define COMBO_COUNT 3
+
+// COMBO_TERM defaults to TAPPING_TERM if not set
+#define COMBO_TERM 200
