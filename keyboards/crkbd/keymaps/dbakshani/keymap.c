@@ -226,12 +226,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, 
       _______, _______, _______, _______, _______, _______,                   _______, MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, _______, 
       _______, _______, _______, _______, _______, _______,                   _______, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, _______, 
-                                          _______, _______, _______, KC_BTN1, KC_BTN3, KC_BTN2
+                                          _______, _______, _______, KC_BTN1, KC_BTN2, KC_BTN3
   )
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+}
+
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+        case KC_MINS:
+        case KC_SCLN:
+        case KC_COMM:
+        case KC_DOT:
+        case KC_SLSH:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case DVK_MINS:
+        case DVK_UNDS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
 }
 
 // bool process_record_user(uint16_t keycode, keyrecord_t *record) {
