@@ -22,10 +22,10 @@ enum layer_names {
   _QWERTY,
   _LOWER,
   _RAISE,
-  _ADJUST,
   _NAVIGATION,
   _MEDIA,
-  _MOUSE
+  _MOUSE,
+  _ADJUST
 };
 
 // enum planck_keycodes {
@@ -38,9 +38,6 @@ enum combos {
     IO_MINS,
     COMMADOT_USCR
 };
-
-// #define LOWER MO(_LOWER)
-// #define RAISE MO(_RAISE)
 
 // multifunction tap/hold keys
 #define LSH_ENT LSFT_T(KC_ENT)
@@ -86,6 +83,13 @@ enum combos {
 #define GUI_L RGUI_T(KC_L)
 #define ALT_SCLN RALT_T(KC_SCLN)
 #define ALGR_SLS ALGR_T(KC_SLSH)
+
+// cut/copy/paste/undo for macOS
+// need to find a solution that works for both macOS and Linux
+#define UNDO LGUI(KC_SLSH)
+#define CUT LGUI(KC_B)
+#define COPY LGUI(KC_I)
+#define PASTE LGUI(KC_DOT)
 
  const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
  const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
@@ -175,9 +179,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_split_3x6_3(
       _______, _______, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,                   _______,DVK_LCBR,DVK_RCBR,DVK_QSTN,DVK_PLUS, KC_DEL ,
-      _______, _______, KC_DLR , KC_PERC, KC_CIRC, KC_GRV ,                   KC_BSLS,DVK_LBRC,DVK_RBRC,DVK_SLSH,DVK_EQUL, _______,
+      KC_CAPS, _______, KC_DLR , KC_PERC, KC_CIRC, KC_GRV ,                   KC_BSLS,DVK_LBRC,DVK_RBRC,DVK_SLSH,DVK_EQUL, _______,
       _______, _______, KC_EXLM, KC_AT  , KC_HASH, KC_TILD,                   KC_PIPE, KC_LPRN, KC_RPRN, _______, KC_BSPC, _______,
                                           _______, _______, _______, _______, _______, _______
+  ),
+
+  [_NAVIGATION] = LAYOUT_split_3x6_3(
+      _______, UNDO   , CUT    , COPY   , PASTE  , _______,                   KC_PGDN, PASTE  , COPY   , CUT    ,KC_RIGHT, _______, 
+      KC_CAPS, KC_END , _______, _______, KC_PGUP, KC_HOME,                   KC_PGDN, KC_LEFT, _______, _______, _______, _______, 
+      _______, _______, _______, KC_DOWN, KC_UP  , _______,                   KC_PGUP, _______, _______, _______, _______, _______, 
+                                          _______, _______, _______, _______, _______, _______
+  ),
+
+  [_MEDIA] = LAYOUT_split_3x6_3(
+      _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______,                   _______, KC_VOLD, KC_MUTE, KC_VOLU, _______, _______,
+      _______, _______, _______, _______, _______, _______,                   _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, _______,
+                                          _______, _______, _______, _______, _______, _______
+  ),
+
+  [_MOUSE] = LAYOUT_split_3x6_3(
+      _______, UNDO   , CUT    , COPY   , PASTE  , _______,                   _______, PASTE  , COPY   , CUT    ,UNDO    , _______, 
+      KC_CAPS, _______, _______, _______, _______, _______,                   _______, MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, _______, 
+      _______, _______, _______, _______, _______, _______,                   _______, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, _______, 
+                                          _______, _______, _______, KC_BTN1, KC_BTN2, KC_BTN3
   ),
 
   /* Adjust (Lower + Raise)
@@ -206,27 +231,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                             _______, _______, _______,    _______, _______, _______
                                         //`--------------------------'  `--------------------------'
-  ),
-
-  [_NAVIGATION] = LAYOUT_split_3x6_3(
-      _______, _______, _______, _______, _______, _______,                   KC_PGDN, _______, KC_CAPS, _______,KC_RIGHT, _______, 
-      CW_TOGG, KC_END , _______, _______, KC_PGUP, KC_HOME,                   KC_PGDN, KC_LEFT, _______, _______, _______, _______, 
-      _______, _______, _______, KC_DOWN, KC_UP  , _______,                   KC_PGUP, _______, _______, _______, _______, _______, 
-                                          _______, _______, _______, _______, _______, _______
-  ),
-
-  [_MEDIA] = LAYOUT_split_3x6_3(
-      _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-      _______, _______, _______, _______, _______, _______,                   _______, KC_VOLD, KC_MUTE, KC_VOLU, _______, _______,
-      _______, _______, _______, _______, _______, _______,                   _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, _______,
-                                          _______, _______, _______, _______, _______, _______
-  ),
-
-  [_MOUSE] = LAYOUT_split_3x6_3(
-      _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, 
-      _______, _______, _______, _______, _______, _______,                   _______, MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, _______, 
-      _______, _______, _______, _______, _______, _______,                   _______, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, _______, 
-                                          _______, _______, _______, KC_BTN1, KC_BTN2, KC_BTN3
   )
 };
 
